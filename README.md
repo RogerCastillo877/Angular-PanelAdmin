@@ -49,3 +49,9 @@ Generate routes in this module, import AppRoutingModule in app.module and add ro
 ### And add others components
 ng g c pages/progress -is --skipTests
 ng g c pages/graphic1 -is --skipTests
+
+## Secondary routes
+
+ng g c pages/pages --flat --skipTests -is
+
+Put all pages whit same template in children routes, outside others with diferent caracteristics
