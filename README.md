@@ -55,3 +55,7 @@ ng g c pages/graphic1 -is --skipTests
 ng g c pages/pages --flat --skipTests -is
 
 Put all pages whit same template in children routes, outside others with diferent caracteristics
+
+### Other components
+
+Copy template of register and set styles.
