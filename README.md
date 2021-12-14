@@ -59,3 +59,18 @@ Put all pages whit same template in children routes, outside others with diferen
 ### Other components
 
 Copy template of register and set styles.
+
+
+## first realise
+
+git tag -a v1.0.0 -m "Desing ready"
+git push --tags
+
+And then edit the realise in Git Hub to publish it.
+
+## Module creation
+
+ng g m pages/pages --flat
+ng g m shared/shared --flat
+
+Import sharedModule in pagesModule, and import RouterModule or AppRoutingModule also in pages Module
