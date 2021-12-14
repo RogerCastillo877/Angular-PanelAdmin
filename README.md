@@ -38,3 +38,14 @@ ng g c shared/header --skipTests -i
 
 Import all the libraries and paste in index all archives that you need to run the project properly.
 (Theme from: https://www.wrappixel.com/templates/category/dashboard-templates/)
+Copy and paste all the elements of themplate that you will use.
+
+## Creation of routes
+
+ng g m appRouting --flat
+
+Generate routes in this module, import AppRoutingModule in app.module and add router-outlet in app.component
+
+### And add others components
+ng g c pages/progress -is --skipTests
+ng g c pages/graphic1 -is --skipTests
