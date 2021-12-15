@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="progress m-t-20">
-                    <div class="progress-bar bg-primary progress-bar-striped active"
+                    <div class="progress-bar bg-info progress-bar-striped active"
                         style="height: 8pt;"
                         [style.width]="getProgress2"
                         role="progressbar">
@@ -35,7 +35,11 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-increment (emitedValue)="progress2 = $event" [progress]="progress2"></app-increment>
+                <app-increment
+                    (emitedValue)="progress2 = $event"
+                    [progress]="progress2"
+                    [btnClass]="'btn-info'"
+                ></app-increment>
             </div>
         </div>
     </div>
