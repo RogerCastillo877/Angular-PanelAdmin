@@ -26,13 +26,13 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ### Components
 
-ng g c auth/login --skipTests -is 
-ng g c auth/register --skipTests -is 
-ng g c pages/nopagefound --skipTests -is
-ng g c pages/dashboard --skipTests -is
-ng g c shared/breadcrumbs --skipTests -is
-ng g c shared/sidebar --skipTests -is
-ng g c shared/header --skipTests -i
+ng g c auth/login --skipTests -is   
+ng g c auth/register --skipTests -is   
+ng g c pages/nopagefound --skipTests -is  
+ng g c pages/dashboard --skipTests -is  
+ng g c shared/breadcrumbs --skipTests -is  
+ng g c shared/sidebar --skipTests -is  
+ng g c shared/header --skipTests -is  
 
 ## Set the theme
 
@@ -47,8 +47,8 @@ ng g m appRouting --flat
 Generate routes in this module, import AppRoutingModule in app.module and add router-outlet in app.component
 
 ### And add others components
-ng g c pages/progress -is --skipTests
-ng g c pages/graphic1 -is --skipTests
+ng g c pages/progress -is --skipTests  
+ng g c pages/graphic1 -is --skipTests  
 
 ## Secondary routes
 
@@ -63,17 +63,23 @@ Copy template of register and set styles.
 
 ## first realise
 
-git tag -a v1.0.0 -m "Desing ready"
-git push --tags
+git tag -a v1.0.0 -m "Desing ready"  
+git push --tags  
 
 And then edit the realise in Git Hub to publish it.
 
 ## Module creation
 
-ng g m pages/pages --flat
-ng g m shared/shared --flat
-ng g m auth/auth --flat
+ng g m pages/pages --flat  
+ng g m shared/shared --flat  
+ng g m auth/auth --flat  
 
 Import sharedModule in pagesModule, and Import RouterModule or AppRoutingModule also in pages Module
 Import pagesModule and authModule in appModule
 
+## Comunication between components
+
+@Input Recibe  
+@Output Transmite  
+
+<span style="color:blue">Prueba</span>

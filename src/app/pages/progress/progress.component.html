@@ -6,7 +6,20 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Striped Progress bar</h4>
-                <div class="progress-bar bg-primary progress-bar-striped active" style="width: 85%; height: 10pt;"></div>
+                <div class="progress m-t-20">
+                    <div class="progress-bar bg-primary progress-bar-striped active"
+                        style="height: 8pt;"
+                        [style.width]=""
+                        role="progressbar">
+                    </div>
+                </div>
+                <div class="progress m-t-20">
+                    <div class="progress-bar bg-primary progress-bar-striped active"
+                        style="height: 8pt;"
+                        [style.width]=""
+                        role="progressbar">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -15,26 +28,14 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </span>
-                            <input type="text" class="form-control" placeholder="Product name">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                    </span>
-                </div>
+                <app-increment></app-increment>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                2
+                <app-increment></app-increment>
             </div>
         </div>
     </div>
