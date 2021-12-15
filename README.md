@@ -75,4 +75,5 @@ ng g m shared/shared --flat
 ng g m auth/auth --flat
 
 Import sharedModule in pagesModule, and Import RouterModule or AppRoutingModule also in pages Module
-Import pagesModule and authModule in appModule 
+Import pagesModule and authModule in appModule
+
