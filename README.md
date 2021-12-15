@@ -72,5 +72,7 @@ And then edit the realise in Git Hub to publish it.
 
 ng g m pages/pages --flat
 ng g m shared/shared --flat
+ng g m auth/auth --flat
 
-Import sharedModule in pagesModule, and import RouterModule or AppRoutingModule also in pages Module
+Import sharedModule in pagesModule, and Import RouterModule or AppRoutingModule also in pages Module
+Import pagesModule and authModule in appModule 
