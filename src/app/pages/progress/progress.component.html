@@ -9,14 +9,14 @@
                 <div class="progress m-t-20">
                     <div class="progress-bar bg-primary progress-bar-striped active"
                         style="height: 8pt;"
-                        [style.width]=""
+                        [style.width]="getProgress1"
                         role="progressbar">
                     </div>
                 </div>
                 <div class="progress m-t-20">
                     <div class="progress-bar bg-primary progress-bar-striped active"
                         style="height: 8pt;"
-                        [style.width]=""
+                        [style.width]="getProgress2"
                         role="progressbar">
                     </div>
                 </div>
@@ -28,14 +28,14 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-increment></app-increment>
+                <app-increment (emitedValue)="progress1 = $event" [progress]="progress1"></app-increment>
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <app-increment></app-increment>
+                <app-increment (emitedValue)="progress2 = $event" [progress]="progress2"></app-increment>
             </div>
         </div>
     </div>
