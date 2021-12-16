@@ -92,3 +92,5 @@ ng g c pages/accountSettings -is --skipTests
 ## Services
 
 ng g s services/settings --skipTests
+
+## Router
