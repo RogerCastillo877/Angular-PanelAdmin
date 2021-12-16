@@ -1,1 +1,30 @@
-<p>graphic1 works!</p>
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="row">
+    <div class="col-6">
+        <app-doughnut
+            title="Ventas"
+        ></app-doughnut>>
+    </div>
+    <div class="col-6">
+        <app-doughnut
+            title="compras"
+            [labels]="labels1"
+            [data]="data1"
+        ></app-doughnut>>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <app-doughnut
+            title="Cambios"
+        ></app-doughnut>>
+    </div>
+    <div class="col-6">
+        <app-doughnut></app-doughnut>>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->

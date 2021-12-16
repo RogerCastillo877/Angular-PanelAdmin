@@ -83,3 +83,5 @@ Import pagesModule and authModule in appModule
 @Output Transmite  
 
 <span style="color:blue">Prueba</span>
+
+ng g c components/doughnut -is --skipTests
