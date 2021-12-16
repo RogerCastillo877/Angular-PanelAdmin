@@ -94,3 +94,6 @@ ng g c pages/accountSettings -is --skipTests
 ng g s services/settings --skipTests
 
 ## Router
+
+Implement routerLink="account-settings" and import RouterModule in pagesComponent
+
