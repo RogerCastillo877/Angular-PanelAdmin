@@ -97,3 +97,7 @@ ng g s services/settings --skipTests
 
 Implement routerLink="account-settings" and import RouterModule in pagesComponent
 
+## Promes Vs. Observable
+
+Promes are native in EM6 (difficult to cancel) 
+Observable are a library
