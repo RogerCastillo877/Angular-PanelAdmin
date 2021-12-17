@@ -101,3 +101,5 @@ Implement routerLink="account-settings" and import RouterModule in pagesComponen
 
 Promes are native in EM6 (difficult to cancel) 
 Observable are a library
+
+** Be carefull with strict mode of Angular for example in use of filter operator **
