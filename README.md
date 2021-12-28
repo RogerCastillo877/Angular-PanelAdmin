@@ -103,3 +103,7 @@ Promes are native in EM6 (difficult to cancel)
 Observable are a library
 
 ** Be carefull with strict mode of Angular for example in use of filter operator **
+
+## Create User model
+
+Create User Model and then set the comprobation of fields
