@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent {
   public formSubmitted = false;
 
   public registerForm = this.fb.group({
-    name: ['Rocas', [Validators.required] ], 
+    nombre: ['Rocas12', [Validators.required] ], 
     email: ['test@email.com', [Validators.required, Validators.email] ],
     password: ['1234', [Validators.required] ],
     password2: ['1234', [Validators.required] ],
@@ -21,17 +22,23 @@ export class RegisterComponent {
     validators: this.equalPassword('password', 'password2')
   });
 
-  constructor( private fb: FormBuilder) { }
+  constructor( private fb: FormBuilder,
+                private userService: UserService) { }
 
   createUser() {
     this.formSubmitted = true;
     console.log( this.registerForm.value );
 
-    if( this.registerForm.valid ) {
-      console.log('Enviando formulario');
-    } else {
-      console.log('Formulario inválido...');  
-    }
+    if( this.registerForm.invalid ) {
+      return;
+    } 
+    
+    //  Send post
+    this.userService.createUser( this.registerForm.value )
+        .subscribe( resp => {
+          console.log('usuario creado');
+          console.log(resp);          
+        }, (err) => console.warn( err ) );
   }
 
   invalidField( field: string ): boolean {
