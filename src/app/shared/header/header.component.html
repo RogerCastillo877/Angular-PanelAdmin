@@ -336,7 +336,9 @@
                   </div>
                   <div class="u-text">
                     <h4>{{ user.nombre }}</h4>
-                    <p class="text-muted">{{ user.email }}</p>
+                    <p class="text-muted">
+                      {{ user.email | slice:0:20 }}{{ (user.email.length > 20) ? '...' : ''}}
+                    </p>
                     <a
                       href="pages-profile.html"
                       class="btn btn-rounded btn-danger btn-sm"
@@ -347,7 +349,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#"><i class="ti-user"></i> My Profile</a>
+                <a routerLink="./profile"><i class="ti-user"></i> My Profile</a>
               </li>
               <li>
                 <a href="#"><i class="ti-wallet"></i> My Balance</a>

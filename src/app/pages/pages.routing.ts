@@ -8,6 +8,7 @@ import { Graphic1Component } from './graphic1/graphic1.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesComponent } from './promes/promes.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,7 @@ const routes: Routes = [
         { path: 'account-settings', component: AccountSettingsComponent, data: { title: 'Theme' } },
         { path: 'promes', component: PromesComponent, data: { title: 'Promes' } },
         { path: 'rxjs', component: RxjsComponent, data: { title: 'Rjxs' } },
+        { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
         ]
     }
 ];
