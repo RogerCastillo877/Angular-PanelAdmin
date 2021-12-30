@@ -111,3 +111,22 @@ Create User Model and then set the comprobation of fields
 ## Generate Service to connect login front-end with backend
 
 ng g s services/user --skipTests
+
+Create service, create interface and create global variable for enviroment
+
+## Install SweetAlert2 [https://sweetalert2.github.io/#download]
+
+npm install sweetalert2
+
+### LocalStorage
+
+After connect functions register and login with back-end, save token in local storage
+
+## Google Sign-In [https://developers.google.com/identity/sign-in/web/sign-in]
+
+Got token from google sign and make a custom botton
+
+## Guard
+
+ng g guard guard/auth --skipTests
+Use to protect routes
