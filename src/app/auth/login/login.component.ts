@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -25,7 +25,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private router: Router,
                 private fb: FormBuilder,
-                private userService: UserService) { }
+                private userService: UserService,
+                private ngZone: NgZone) { }
   
   ngOnInit(): void {
     this.renderButton();
@@ -84,11 +85,11 @@ export class LoginComponent implements OnInit {
             .subscribe(
               resp => {
                 //  Navigate to dashboard
-                this.router.navigateByUrl('/');
+                this.ngZone.run( () => {
+                  this.router.navigateByUrl('/');
+                })
               }
             );
-          
-
         }, (error) => {
           alert(JSON.stringify(error, undefined, 2));
         });

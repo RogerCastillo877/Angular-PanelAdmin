@@ -129,4 +129,8 @@ Got token from google sign and make a custom botton
 ## Guard
 
 ng g guard guard/auth --skipTests
-Use to protect routes
+Use to protect routes and set navigation
+
+## Logout
+
+Create a method to clean token from local storage, set NgZone to works with libraries not propies to angular for example to navigation like this case.
