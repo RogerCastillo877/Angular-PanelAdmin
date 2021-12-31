@@ -16,3 +16,8 @@
     justify-content: center;
     text-align: center;
 }
+
+.image-avatar {
+    height: 100px;
+    width: auto;
+}

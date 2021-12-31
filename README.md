@@ -134,3 +134,16 @@ Use to protect routes and set navigation
 ## Logout
 
 Create a method to clean token from local storage, set NgZone to works with libraries not propies to angular for example to navigation like this case.
+
+## Set update user info
+
+Create a component and use it to update info of user
+
+ng g c pages/profile --skipTests -is
+
+## Implement a service to upload images
+
+ng g s services/fileUpload --skipTests
+
+User fecth to upload the images
+
