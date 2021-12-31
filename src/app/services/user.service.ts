@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, map, catchError } from 'rxjs/operators';
+import { tap, map, catchError, delay } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
 
@@ -9,6 +9,7 @@ import { LoginForm } from '../interfaces/login-form.interface';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { LoadUser } from '../interfaces/load-users.interface';
 
 const base_url = environment.base_url;
 
@@ -34,6 +35,14 @@ export class UserService {
 
   get uid(): string {
     return this.user.uid || '';
+  }
+
+  get headers() {
+    return {
+      headers: {
+        'x-token': this.token
+      }
+    }
   }
 
   googleInit() {
@@ -115,6 +124,24 @@ export class UserService {
       .pipe(
         tap( (resp: any) => {
           localStorage.setItem('token', resp.token )
+        })
+      )
+  }
+  
+  loadUSer( from: number = 0 ) {
+    const url = `${ base_url }/users?from=${ from }`;
+    return this.http.get<LoadUser>(url, this.headers )
+      .pipe(
+        // delay(2000),
+        map( resp => {
+          const users = resp.users.map(
+             user => new User(user.nombre, user.email, '', user.img, user.google, user.role, user.uid)
+            );
+
+          return {
+            total: resp.total,
+            users
+          };
         })
       )
   }

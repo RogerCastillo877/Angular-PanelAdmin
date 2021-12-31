@@ -17,6 +17,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesComponent } from './promes/promes.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './maintenance/users/users.component';
 
 
 
@@ -29,14 +30,16 @@ import { ProfileComponent } from './profile/profile.component';
     AccountSettingsComponent,
     PromesComponent,
     RxjsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersComponent
   ],
   exports: [
     DashboardComponent,
     ProgressComponent,
     Graphic1Component,
     PagesComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,

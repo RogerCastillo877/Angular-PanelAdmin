@@ -21,3 +21,12 @@
     height: 100px;
     width: auto;
 }
+
+.w100 {
+    width: 100px;
+}
+
+.avatar {
+    border-radius: 100%;
+    width: 40px;
+}
