@@ -4,7 +4,9 @@
             <div class="card-body">
                <input type="text"
                     class="form-control"
-                    placeholder="Buscar usuario"> 
+                    placeholder="Buscar usuario"
+                    (keyup)="search( txtTermn.value )"
+                    #txtTermn> 
             </div>
         </div>
     </div>
@@ -34,7 +36,7 @@
                                 <th class="w100">Avatar</th>
                                 <th>Correo</th>
                                 <th>Nombre</th>
-                                <th class="w100">Role</th>
+                                <th class="w140">Role</th>
                                 <th class="w100">Auth</th>
                                 <th class="text-nowrap w100">Acciones</th>
                             </tr>
@@ -49,23 +51,36 @@
                                 </td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.nombre }}</td>
-                                <td>{{ user.role }}</td>
+                                <td>
+                                    <select class="form-contol"
+                                        [(ngModel)]="user.role"
+                                        (change)="changeRole()">
+                                        <option value="ADMIN_ROLE">Admin</option>
+                                        <option value="USER_ROLE">User</option>
+                                    </select>
+                                </td>
                                 <td>
                                     <span *ngIf="user.google" class="label label-danger">Google</span>
                                     <span *ngIf="!user.google" class="label label-info">Email</span>
                                 </td>
                                 <td>
                                 <td class="text-nowrap text-center">
-                                    <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                    <a href="#" data-toggle="tooltip" data-original-title="Erase"> <i class="fa fa-close text-danger"></i> </a>
+                                    <a data-toggle="tooltip"
+                                        data-original-title="Erase"
+                                        class="cursor"
+                                        (click)="deleteUser(user)"> 
+                                        <i class="fa fa-close text-danger"></i> 
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <button (click)="changePage(-5)" class="btn btn-secondary">Anterior</button>
-                &nbsp;
-                <button (click)="changePage(5)" class="btn btn-secondary">Siguiente</button>
+                <div *ngIf="txtTermn.value.length === 0">
+                    <button (click)="changePage(-5)" class="btn btn-secondary">Anterior</button>
+                    &nbsp;
+                    <button (click)="changePage(5)" class="btn btn-secondary">Siguiente</button>
+                </div>
             </div>
         </div>
     </div>
