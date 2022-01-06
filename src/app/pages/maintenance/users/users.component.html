@@ -54,7 +54,7 @@
                                 <td>
                                     <select class="form-contol"
                                         [(ngModel)]="user.role"
-                                        (change)="changeRole()">
+                                        (change)="changeRole( user )">
                                         <option value="ADMIN_ROLE">Admin</option>
                                         <option value="USER_ROLE">User</option>
                                     </select>

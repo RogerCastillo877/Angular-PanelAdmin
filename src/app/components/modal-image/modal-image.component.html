@@ -1,0 +1,35 @@
+<div class="backgroun-modal-image animated fadeIn fast"
+    [class.hidden]="hideModal">
+    
+    <div class="modal fade show"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel1"
+        style="display: block; padding-right: 17px;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1">Cargar Imágen</h4>
+                    <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                        (click)="closeModal()"><span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Sellecione Imágen</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"
+                        class="btn btn-default"
+                        data-dismiss="modal"
+                        (click)="closeModal()">Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary">cargar imágen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
