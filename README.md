@@ -151,3 +151,12 @@ User fecth to upload the images
 
 ng g c pages/maintenance/users --skipTests
 
+## Generate a pipe
+
+ng g pipe pipes/imagen --skipTests
+
+Check where you imported this file, if import is in app.module, create new module.
+
+ng g m pipes/pipes --flat
+
+Then import this pipe there and also import the pipe in the root where you could use it.

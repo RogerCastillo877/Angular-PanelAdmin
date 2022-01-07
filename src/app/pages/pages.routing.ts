@@ -10,6 +10,8 @@ import { PromesComponent } from './promes/promes.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
+import { DoctorsComponent } from './maintenance/doctors/doctors.component';
+import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
 
 const routes: Routes = [
     {
@@ -24,7 +26,10 @@ const routes: Routes = [
         { path: 'promes', component: PromesComponent, data: { title: 'Promes' } },
         { path: 'rxjs', component: RxjsComponent, data: { title: 'Rjxs' } },
         { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
+        //  Maintenance
         { path: 'users', component: UsersComponent, data: { title: 'App users' } },
+        { path: 'doctors', component: DoctorsComponent, data: { title: 'Maintenance doctors' } },
+        { path: 'hospitals', component: HospitalsComponent, data: { title: 'Maintenance hospitals' } },
         ]
     }
 ];
