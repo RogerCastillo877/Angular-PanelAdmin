@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
-import { User } from '../../../models/user.model';
-import { SearchesService } from '../../../services/searches.service';
 import Swal from 'sweetalert2';
+
+import { User } from '../../../models/user.model';
+
+import { ModalImageService } from '../../../services/modal-image.service';
+import { SearchesService } from '../../../services/searches.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -18,7 +21,8 @@ export class UsersComponent implements OnInit {
   public loading: boolean = true;
 
   constructor( private userService: UserService,
-                private searchesService: SearchesService) { }
+                private searchesService: SearchesService,
+                private modalImageService: ModalImageService) { }
 
   ngOnInit(): void {
     
@@ -92,5 +96,9 @@ export class UsersComponent implements OnInit {
       .subscribe( resp => {
         console.log(resp);        
       })
+  }
+
+  openModal( user: User ) {
+    this.modalImageService.openModal();
   }
 }

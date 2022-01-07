@@ -47,6 +47,7 @@
                                     <img class="avatar"
                                         [src]="user.imageUrl"
                                         alt="Avatar de usuario"
+                                        (click)="openModal(user)"
                                     >
                                 </td>
                                 <td>{{ user.email }}</td>
