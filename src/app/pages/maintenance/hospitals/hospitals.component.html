@@ -25,15 +25,28 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Hospitales {{hospitals.length}}</h4>
-                <h6 class="card-subtitle">Hospitales registrados en la aplicación</h6>
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">Hospitales ({{hospitals.length}})</h4>
+                        <h6 class="card-subtitle">Hospitales registrados en la aplicación</h6>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            <button class="btn btn-primary"
+                                (click)="openSweetAlert()">
+                                <i class="fa fa-hospital-o"></i>
+                                Crear Hospital
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th class="w100">Foto</th>
                                 <th>Nombre</th>
-                                <th class="text-nowrap">Acciones</th>
+                                <th class="w100 text-nowrap">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +54,8 @@
                                 <td class="text-center">
                                     <img [src]="hospital.img | imagen: 'hospitals'"
                                         [alt]="hospital.name"
-                                        class="avatar cursor">
+                                        class="avatar cursor"
+                                        (click)="openModal(hospital)">
                                 </td>
                                 <td>
                                     <input type="text"
@@ -51,8 +65,18 @@
                                 </td>
                                 <td>
                                 <td class="text-nowrap text-center">
-                                    <a href="#" data-toggle="tooltip" data-original-title="Guardar Cambios"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                    <a href="#" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i> </a>
+                                    <a (click)="saveChanges(hospital)"
+                                        data-toggle="tooltip"
+                                        class="cursor"
+                                        data-original-title="Guardar Cambios">
+                                        <i class="fa fa-pencil text-inverse m-r-10"></i>
+                                    </a>
+                                    <a (click)="removeHospital(hospital)"
+                                        data-toggle="tooltip"
+                                        data-original-title="Borrar"
+                                        class="cursor">
+                                        <i class="fa fa-close text-danger"></i>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
