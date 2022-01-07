@@ -20,6 +20,12 @@
                 </div>
                 <div class="modal-body">
                     <h3>Sellecione Imágen</h3>
+                    <div class="text-center">
+                        <img *ngIf="!imgTemp" [src]="modalImageService.img" class="image-avatar">
+                        <img *ngIf="imgTemp" [src]="imgTemp" class="image-avatar">
+                    </div>
+                    <input type="file"
+                        (change)="changeImage($event.target)">
                 </div>
                 <div class="modal-footer">
                     <button type="button"
@@ -27,7 +33,9 @@
                         data-dismiss="modal"
                         (click)="closeModal()">Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary">cargar imágen</button>
+                    <button type="button"
+                        class="btn btn-primary"
+                        (click)="uploadImage()">cargar imágen</button>
                 </div>
             </div>
         </div>
