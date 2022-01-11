@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Hospital } from 'src/app/models/hospital.model';
-import Swal from 'sweetalert2';
-import { HospitalService } from '../../../services/hospital.service';
-import { ModalImageService } from '../../../services/modal-image.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+import { Hospital } from 'src/app/models/hospital.model';
+import { HospitalService } from '../../../services/hospital.service';
+import { ModalImageService } from '../../../services/modal-image.service';
+import { SearchesService } from '../../../services/searches.service';
 
 @Component({
   selector: 'app-hospitals',
@@ -12,14 +13,18 @@ import { delay } from 'rxjs/operators';
   styles: [
   ]
 })
-export class HospitalsComponent implements OnInit {
+export class HospitalsComponent implements OnInit, OnDestroy {
 
   public hospitals: Hospital[] = [];
   public loading: boolean = true;
-  private imgSubs: Subscription
+  private imgSubs: Subscription;
 
   constructor( private hospitalService: HospitalService,
-                private modalImageService: ModalImageService ) { }
+                private modalImageService: ModalImageService,
+                private searchesService: SearchesService ) { }
+  ngOnDestroy(): void {
+    this.imgSubs.unsubscribe()
+  }
 
   ngOnInit(): void {
     this.loadHospitals();
@@ -27,6 +32,17 @@ export class HospitalsComponent implements OnInit {
     this.imgSubs = this.modalImageService.newImage
       .pipe( delay(100) )
       .subscribe( img => this.loadHospitals() );
+  }
+
+  search(termn: string) {
+
+    if( termn.length === 0 ) {
+      this.loadHospitals();
+    }
+    this.searchesService.search('hospitals', termn)
+      .subscribe( (resp: any[]) => {
+        this.hospitals = resp;
+      })
   }
 
   loadHospitals() {
@@ -55,13 +71,13 @@ export class HospitalsComponent implements OnInit {
   }
 
   async openSweetAlert() {
-    const {value} = await Swal.fire<string>({
+    const { value = '' } = await Swal.fire<string>({
       title: 'Agregar Hospital',
       text: 'Ingrese el nuevo hospital',
       input: 'text',
       inputPlaceholder: 'Ingrese nombre del hospital',
       showCancelButton: true,
-    })
+    });
 
     if( value.trim().length > 0 ) {
       this.hospitalService.createHospital( value )

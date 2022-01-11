@@ -4,7 +4,9 @@
             <div class="card-body">
                <input type="text"
                     class="form-control"
-                    placeholder="Buscar hospital"> 
+                    placeholder="Buscar hospital"
+                    #txtTermn
+                    (keyup)="search( txtTermn.value )"> 
             </div>
         </div>
     </div>
@@ -27,7 +29,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-8">
-                        <h4 class="card-title">Hospitales ({{hospitals.length}})</h4>
+                        <h4 class="card-title">Hospitales {{hospitals.length}}</h4>
                         <h6 class="card-subtitle">Hospitales registrados en la aplicación</h6>
                     </div>
                     <div class="col">
@@ -54,7 +56,7 @@
                                 <td class="text-center">
                                     <img [src]="hospital.img | imagen: 'hospitals'"
                                         [alt]="hospital.name"
-                                        class="avatar cursor"
+                                        class="w100 cursor"
                                         (click)="openModal(hospital)">
                                 </td>
                                 <td>

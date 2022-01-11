@@ -160,3 +160,4 @@ Check where you imported this file, if import is in app.module, create new modul
 ng g m pipes/pipes --flat
 
 Then import this pipe there and also import the pipe in the root where you could use it.
+

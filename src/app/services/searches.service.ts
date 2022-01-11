@@ -4,6 +4,8 @@ import { LoadUser } from '../interfaces/load-users.interface';
 import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { Hospital } from '../models/hospital.model';
+import { Doctor } from '../models/doctor.model';
 
 const base_url = environment.base_url;
 
@@ -31,18 +33,27 @@ export class SearchesService {
       user => new User(user.nombre, user.email, '', user.img, user.google, user.role, user.uid)
     );
   }
+  
+  private transformHospitals ( results: any[] ): Hospital[] {
+    return results;
+  }
 
-  search(type: 'users'|'doctors'|'hospitals', termn: string) {
-    
+  private transformDoctors ( results: any[] ): Doctor[] {
+    return results;
+  }
+
+  search(type: 'users'|'doctors'|'hospitals', termn: string) {  
     const url = `${ base_url }/todo/collection/${ type }/${ termn }`;
-    return this.http.get<any[]>(url, this.headers)
+    return this.http.get<any[]>(url, this.headers)    
       .pipe(
         map( (resp: any) => {
           switch (type) {
             case 'users':
-              return this.transformUser( resp.results )
-              break;
-          
+              return this.transformUser( resp.result )
+            case 'hospitals':
+              return this.transformHospitals( resp.result )
+            case 'doctors':
+              return this.transformDoctors( resp.result )
             default:
               return [];
           }

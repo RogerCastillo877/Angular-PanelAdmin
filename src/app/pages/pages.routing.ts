@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
 import { DoctorsComponent } from './maintenance/doctors/doctors.component';
 import { HospitalsComponent } from './maintenance/hospitals/hospitals.component';
+import { DoctorComponent } from './maintenance/doctors/doctor.component';
 
 const routes: Routes = [
     {
@@ -27,9 +28,10 @@ const routes: Routes = [
         { path: 'rxjs', component: RxjsComponent, data: { title: 'Rjxs' } },
         { path: 'profile', component: ProfileComponent, data: { title: 'Profile' } },
         //  Maintenance
-        { path: 'users', component: UsersComponent, data: { title: 'App users' } },
-        { path: 'doctors', component: DoctorsComponent, data: { title: 'Maintenance doctors' } },
-        { path: 'hospitals', component: HospitalsComponent, data: { title: 'Maintenance hospitals' } },
+        { path: 'users', component: UsersComponent, data: { title: 'Mantenimiento usuarios' } },
+        { path: 'hospitals', component: HospitalsComponent, data: { title: 'Mantenimiento hospitales' } },
+        { path: 'doctors', component: DoctorsComponent, data: { title: 'Mantenimiento médicos' } },
+        { path: 'doctor/:id', component: DoctorComponent, data: { title: 'Mantenimiento médicos' } },
         ]
     }
 ];

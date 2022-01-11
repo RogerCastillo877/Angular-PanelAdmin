@@ -68,8 +68,8 @@ export class UsersComponent implements OnInit, OnDestroy {
       return this.users = this.usersTemp;
     }
     this.searchesService.search('users', termn)
-      .subscribe( results => {
-        this.users = results;
+      .subscribe( ( resp: any ) => {
+        this.users = resp;
       })   
   }
 
@@ -104,8 +104,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   changeRole(user: User) {
     this.userService.saveUser( user )
-      .subscribe( resp => {
-        console.log(resp);        
+      .subscribe( resp => {       
       })
   }
 
