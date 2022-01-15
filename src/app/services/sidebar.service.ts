@@ -5,28 +5,32 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
 
-  menu: any[] = [
-    {
-      title: 'Dashboard!!',
-      icon: 'mdi mdi-gauge',
-      submenu: [
-        { title: 'Main', url: '/' },
-        { title: 'ProgressBar', url: 'progress' },
-        { title: 'Gráficas', url: 'graphic1' },
-        { title: 'Promes', url: 'promes' },
-        { title: 'Rxjs', url: 'rxjs' },
-      ]
-    },
-    {
-      title: 'Maintenance',
-      icon: 'mdi mdi-folder-lock-open',
-      submenu: [
-        { title: 'Ususarios', url: 'users' },
-        { title: 'Hospitales', url: 'hospitals' },
-        { title: 'Médicos', url: 'doctors' }
-      ]
-    }
-  ];
+  public menu = [];
 
-  constructor() { }
+  loadMenu() {
+    this.menu = JSON.parse(localStorage.getItem('menu')) || [];
+  }
+
+  // menu: any[] = [
+  //   {
+  //     title: 'Dashboard!!',
+  //     icon: 'mdi mdi-gauge',
+  //     submenu: [
+  //       { title: 'Main', url: '/' },
+  //       { title: 'ProgressBar', url: 'progress' },
+  //       { title: 'Gráficas', url: 'graphic1' },
+  //       { title: 'Promes', url: 'promes' },
+  //       { title: 'Rxjs', url: 'rxjs' },
+  //     ]
+  //   },
+  //   {
+  //     title: 'Maintenance',
+  //     icon: 'mdi mdi-folder-lock-open',
+  //     submenu: [
+  //       { title: 'Ususarios', url: 'users' },
+  //       { title: 'Hospitales', url: 'hospitals' },
+  //       { title: 'Médicos', url: 'doctors' }
+  //     ]
+  //   }
+  // ];
 }

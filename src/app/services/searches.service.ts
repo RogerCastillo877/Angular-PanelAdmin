@@ -42,6 +42,11 @@ export class SearchesService {
     return results;
   }
 
+  globalSearch( termn: string ) {
+    const url = `${ base_url }/todo/${ termn }`;
+    return this.http.get(url, this.headers);
+  }
+
   search(type: 'users'|'doctors'|'hospitals', termn: string) {  
     const url = `${ base_url }/todo/collection/${ type }/${ termn }`;
     return this.http.get<any[]>(url, this.headers)    

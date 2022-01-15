@@ -161,3 +161,14 @@ ng g m pipes/pipes --flat
 
 Then import this pipe there and also import the pipe in the root where you could use it.
 
+## Implement Search
+
+ng g c pages/search --skipTests -is
+
+Make sure than update pages module, then update pages routing.
+
+Remove menu structure from sidebar.service and call from backend.
+
+## Create a guard to protect route to users
+
+ng g guard guard/admin --skipTest
