@@ -178,3 +178,9 @@ ng g guard guard/admin --skipTest
 To improve the eficiency, load modules on demand
 
 ng g m pages/childRoutes --flat
+
+## Generaite build
+
+ng build --prod
+
+Copy and paste files to prod in backend to deploy
