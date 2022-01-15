@@ -172,3 +172,9 @@ Remove menu structure from sidebar.service and call from backend.
 ## Create a guard to protect route to users
 
 ng g guard guard/admin --skipTest
+
+## Lazy Load
+
+To improve the eficiency, load modules on demand
+
+ng g m pages/childRoutes --flat
